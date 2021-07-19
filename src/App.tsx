@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
+import RegistrationForm from "./components/user/registration";
+
 function App() {
   return (
-    <div>
-        CoSplit
-    </div>
+      <RegistrationForm />
   );
 }
 
