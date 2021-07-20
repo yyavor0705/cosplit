@@ -1,4 +1,6 @@
 import React, {useRef} from "react";
+import {Input, TextField, FormControl} from "@material-ui/core";
+import Button from '@material-ui/core/Button';
 
 import useHttp from "../../hooks/use-http";
 
@@ -23,13 +25,13 @@ const RegistrationForm: React.FC = (props) => {
   }
   
   return (
-    <form onSubmit={register}>
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" ref={email}/>
-      <label htmlFor="password">Password</label>
-      <input type="password" id="password" ref={password}/>
-      <button>Register</button>
-    </form>
+    <FormControl>
+      <TextField label="Email" inputRef={email}/>
+      <TextField label="Password" inputRef={password} type="password"/>
+      <Button variant="contained" color="primary" onClick={register}>
+        Register
+      </Button>
+    </FormControl>
   );
 }
 
