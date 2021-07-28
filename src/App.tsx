@@ -2,8 +2,8 @@ import React from 'react';
 import {Route} from "react-router-dom"
 import {StylesProvider, AppBar, Toolbar} from "@material-ui/core"
 
-import LoginForm from "./components/user/login";
-import RegistrationForm from "./components/user/registration";
+import LoginForm from "./components/user/Login";
+import RegistrationForm from "./components/user/Registration";
 
 import './App.css';
 

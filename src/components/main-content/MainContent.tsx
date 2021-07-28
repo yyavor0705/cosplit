@@ -1,13 +1,14 @@
 import React from "react";
-import {Container} from "@material-ui/core";
-
-import styles from "./MainContent.module.css"
+import {Grid} from "@material-ui/core";
 
 const MainContent: React.FC = (props) => {
   return (
-    <Container className={styles.MainContent}>
+    <Grid container
+          direction="row"
+          justifyContent="center"
+          alignItems="center">
       {props.children!}
-    </Container>
+    </Grid>
   );
 }
 
