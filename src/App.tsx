@@ -14,9 +14,9 @@ function App() {
         <Toolbar>
         </Toolbar>
       </AppBar>
-      <Route path="/" component={LoginForm} />
-      <Route path="/login" component={LoginForm} />
-      <Route path="/registration" component={RegistrationForm} />
+      <Route path="/" component={LoginForm} exact/>
+      <Route path="/login" component={LoginForm} exact/>
+      <Route path="/registration" component={RegistrationForm} exact/>
     </StylesProvider>
   );
 }

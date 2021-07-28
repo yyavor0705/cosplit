@@ -1,15 +1,15 @@
 import React, {useRef} from "react";
-import {TextField, FormControl, Container} from "@material-ui/core";
+import {TextField, FormControl} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 
 import useHttp from "../../hooks/use-http";
-import styles from "./registration.module.css"
+import MainContent from "../main-content/MainContent";
 
 const RegistrationForm: React.FC = (props) => {
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
   const {requestInProgress, sendRequest} = useHttp();
-  
+
   const register = (event: React.FormEvent) => {
     event.preventDefault();
     console.log("Register call: " + email.current!.value + " " + password.current!.value);
@@ -24,9 +24,9 @@ const RegistrationForm: React.FC = (props) => {
     });
     console.log(response);
   }
-  
+
   return (
-    <Container className={styles.Container}>
+    <MainContent>
       <FormControl>
         <TextField label="Email" inputRef={email}/>
         <TextField label="Password" inputRef={password} type="password"/>
@@ -34,7 +34,7 @@ const RegistrationForm: React.FC = (props) => {
           Register
         </Button>
       </FormControl>
-    </Container>
+    </MainContent>
   );
 }
 

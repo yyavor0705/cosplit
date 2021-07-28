@@ -1,9 +1,9 @@
-import {Container, FormControl, TextField} from "@material-ui/core";
+import {FormControl, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import React, {useRef} from "react";
 
-import styles from "./login.module.css"
 import useHttp from "../../hooks/use-http";
+import MainContent from "../main-content/MainContent";
 
 const LoginForm: React.FC = (props) => {
   const email = useRef<HTMLInputElement>(null);
@@ -14,7 +14,7 @@ const LoginForm: React.FC = (props) => {
     event.preventDefault();
     console.log("Login call: " + email.current!.value + " " + password.current!.value);
     const response = sendRequest({
-      url: "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBA5P61AT2iXKI8657cyhwG-7G9iSwIySM",
+      url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBA5P61AT2iXKI8657cyhwG-7G9iSwIySM",
       method: "POST",
       body: JSON.stringify({
         email: email.current!.value,
@@ -26,7 +26,7 @@ const LoginForm: React.FC = (props) => {
   }
 
   return (
-    <Container className={styles.Container}>
+    <MainContent>
       <FormControl>
         <TextField label="Email" inputRef={email}/>
         <TextField label="Password" inputRef={password} type="password"/>
@@ -34,7 +34,7 @@ const LoginForm: React.FC = (props) => {
           Login
         </Button>
       </FormControl>
-    </Container>
+    </MainContent>
   );
 }
 
