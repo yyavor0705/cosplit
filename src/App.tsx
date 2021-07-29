@@ -4,6 +4,7 @@ import {StylesProvider, AppBar, Toolbar} from "@material-ui/core"
 
 import LoginForm from "./components/user/Login";
 import RegistrationForm from "./components/user/Registration";
+import MainContent from "./components/main-content/MainContent";
 
 import './App.css';
 
@@ -14,9 +15,11 @@ function App() {
         <Toolbar>
         </Toolbar>
       </AppBar>
-      <Route path="/" component={LoginForm} exact/>
-      <Route path="/login" component={LoginForm} exact/>
-      <Route path="/registration" component={RegistrationForm} exact/>
+      <MainContent>
+        <Route path="/" component={LoginForm} exact/>
+        <Route path="/login" component={LoginForm} exact/>
+        <Route path="/registration" component={RegistrationForm} exact/>
+      </MainContent>
     </StylesProvider>
   );
 }
