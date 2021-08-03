@@ -7,6 +7,7 @@ import RegistrationForm from "./components/user/Registration";
 import MainContent from "./components/main-content/MainContent";
 
 import './App.css';
+import EventsList from "./components/events/EventsList";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" component={LoginForm} exact/>
         <Route path="/login" component={LoginForm} exact/>
         <Route path="/registration" component={RegistrationForm} exact/>
+        <Route path="/events" component={EventsList} exact/>
       </MainContent>
     </StylesProvider>
   );
