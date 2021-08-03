@@ -5,29 +5,65 @@ const DATA = [
   {
     id: "ev1",
     title: "This is event 1",
-    costs_data: {
-      "user1": -10.05,
-      "user2": -20,
-      "user3": 10
-    }
+    costs_data: [
+      {
+        id: 1,
+        participantName: "user1",
+        costs: -10.05
+      },
+      {
+        id: 1,
+        participantName: "user2",
+        costs: 10.05
+      },
+      {
+        id: 1,
+        participantName: "user3",
+        costs: 1218.05
+      },
+    ]
   },
   {
     id: "ev2",
     title: "This is event 2",
-    costs_data: {
-      "user1": -120.05,
-      "user2": 201,
-      "user3": -12
-    }
+    costs_data: [
+      {
+        id: 1,
+        participantName: "user12",
+        costs: -104.05
+      },
+      {
+        id: 1,
+        participantName: "user22",
+        costs: 140.05
+      },
+      {
+        id: 1,
+        participantName: "user32",
+        costs: -4118.05
+      },
+    ]
   },
   {
     id: "ev3",
     title: "This is event 3",
-    costs_data: {
-      "user1": -11.05,
-      "user2": -24,
-      "user3": 15
-    }
+    costs_data: [
+      {
+        id: 1,
+        participantName: "user13",
+        costs: -10.05
+      },
+      {
+        id: 1,
+        participantName: "user23",
+        costs: -102.05
+      },
+      {
+        id: 1,
+        participantName: "user33",
+        costs: 1844.05
+      },
+    ]
   }
 ]
 
@@ -49,7 +85,9 @@ const EventList: React.FC = () => {
                              expanded={expandedPanel === ev.id}
                              summary={ev.title}
                              details={"Details"}
-                             onChangeHandler={handleChange}/>
+                             onChangeHandler={handleChange}
+                             shortDetailsData={ev.costs_data}
+              />
             );
           }
         )

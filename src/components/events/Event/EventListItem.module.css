@@ -1,3 +1,7 @@
 .EventListItem {
     min-width: 80%;
 }
+
+.Details {
+    background-color: #eaedf5;
+}
