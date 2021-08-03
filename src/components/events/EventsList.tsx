@@ -31,13 +31,11 @@ const DATA = [
   }
 ]
 
-const EventList: React.FC = (props) => {
-  const [expandedPanel, setExpanded] = useState("");
+const EventList: React.FC = () => {
+  const [expandedPanel, setExpandedPanel] = useState("");
 
   const handleChange = (panelKey: string, isExpanded: boolean) => {
-    console.log(`Handle change ${panelKey} ${isExpanded}`);
-    setExpanded(isExpanded ? panelKey : "");
-    console.log(`New panel : ${expandedPanel}`)
+    setExpandedPanel(isExpanded ? panelKey : "");
   };
 
   return (

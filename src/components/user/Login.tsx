@@ -3,13 +3,12 @@ import Button from "@material-ui/core/Button";
 import React, {useRef} from "react";
 
 import useHttp from "../../hooks/use-http";
-import MainContent from "../main-content/MainContent";
 import UserForm from "./UserForm";
 
-const LoginForm: React.FC = (props) => {
+const LoginForm: React.FC = () => {
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
-  const {requestInProgress, sendRequest} = useHttp();
+  const {sendRequest} = useHttp();
   
   const register = (event: React.FormEvent) => {
     event.preventDefault();

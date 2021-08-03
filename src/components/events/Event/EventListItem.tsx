@@ -1,6 +1,5 @@
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import React, {useState} from "react";
 
 import styles from "./EventListItem.module.css"
 
@@ -13,16 +12,10 @@ export interface IEventListItemProps {
 }
 
 const EventListItem: React.FC<IEventListItemProps> = (props) => {
-  const [isExpanded, setIsExpanded] = useState(false);
 
-  const changeHandler = () => {
-    setIsExpanded(prevState => {
-      console.log(prevState);
-      console.log(!prevState);
-      return true;
-    });
-    console.log(isExpanded);
-    props.onChangeHandler(props.eventKey, isExpanded);
+  const changeHandler = (event: React.ChangeEvent<{}>, expanded: boolean) => {
+    console.log(`return from changeHandler ${expanded}`);
+    props.onChangeHandler(props.eventKey, expanded);
   }
 
   return (

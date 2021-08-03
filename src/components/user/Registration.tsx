@@ -3,13 +3,12 @@ import {TextField, Paper} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 
 import useHttp from "../../hooks/use-http";
-import MainContent from "../main-content/MainContent";
 import UserForm from "./UserForm";
 
-const RegistrationForm: React.FC = (props) => {
+const RegistrationForm: React.FC = () => {
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
-  const {requestInProgress, sendRequest} = useHttp();
+  const {sendRequest} = useHttp();
   
   const register = (event: React.FormEvent) => {
     event.preventDefault();
