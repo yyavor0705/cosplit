@@ -21,7 +21,7 @@ export const AuthContextProvider: React.FC = (props) => {
   }
 
   const loginHandler = () => {
-    setIsLoggedIn(false);
+    setIsLoggedIn(true);
     localStorage.setItem("isLoggedIn", "1")
   }
 

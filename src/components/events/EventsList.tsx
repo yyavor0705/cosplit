@@ -86,7 +86,6 @@ const EventList: React.FC = () => {
     <Fragment>
       {
         eventsList.map(ev => {
-            console.log("Expanded panel is " + expandedPanel)
             return (
               <EventListItem key={ev.id}
                              eventKey={ev.id}

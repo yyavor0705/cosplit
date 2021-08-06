@@ -1,26 +1,32 @@
-import React from 'react';
-import {Route} from "react-router-dom"
-import {StylesProvider, AppBar, Toolbar} from "@material-ui/core"
+import React, {useContext} from 'react';
+import {Redirect, Route, Switch} from "react-router-dom"
+import {StylesProvider} from "@material-ui/core"
 
+import AuthContext from "./store/auth-context";
 import LoginForm from "./components/user/Login";
+import TopBar from "./components/TopBar/TopBar";
+import EventsList from "./components/events/EventsList";
 import RegistrationForm from "./components/user/Registration";
 import MainContent from "./components/main-content/MainContent";
 
 import './App.css';
-import EventsList from "./components/events/EventsList";
 
 function App() {
+  const authCtx = useContext(AuthContext);
+  
   return (
     <StylesProvider injectFirst>
-      <AppBar position="static">
-        <Toolbar>
-        </Toolbar>
-      </AppBar>
+      <TopBar/>
       <MainContent>
-        <Route path="/" component={LoginForm} exact/>
-        <Route path="/login" component={LoginForm} exact/>
-        <Route path="/registration" component={RegistrationForm} exact/>
-        <Route path="/events" component={EventsList} exact/>
+        <Switch>
+          {!authCtx.isLoggedIn && <Route path="/login" component={LoginForm}/>}
+          {!authCtx.isLoggedIn && <Route path="/registration" component={RegistrationForm}/>}
+          {authCtx.isLoggedIn && <Route path="/events" component={EventsList}/>}
+          <Route path="*">
+            {authCtx.isLoggedIn && <Redirect to="/events"/>}
+            {!authCtx.isLoggedIn && <Redirect to="/login"/>}
+          </Route>
+        </Switch>
       </MainContent>
     </StylesProvider>
   );
