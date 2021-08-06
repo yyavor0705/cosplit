@@ -1,3 +1,10 @@
 .UserForm {
     margin: 50px;
+    text-align: center;
 }
+
+.UserForm button {
+    width: 80%;
+    margin: 10px auto auto auto;
+}
+

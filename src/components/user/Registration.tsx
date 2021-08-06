@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import {TextField, Paper} from "@material-ui/core";
+import {TextField, Paper, Typography} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 
 import useHttp from "../../hooks/use-http";
@@ -28,6 +28,7 @@ const RegistrationForm: React.FC = () => {
   return (
     <Paper elevation={3}>
       <UserForm>
+        <Typography variant="h6" component="h6">Register Form</Typography>
         <TextField label="Email" inputRef={email}/>
         <TextField label="Password" inputRef={password} type="password"/>
         <Button variant="contained" color="primary" onClick={register}>

@@ -1,10 +1,13 @@
-import {Paper, TextField} from "@material-ui/core";
+import {Paper, TextField, Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import React, {useContext, useRef} from "react";
+import {Link} from "react-router-dom"
 
 //import useHttp from "../../hooks/use-http";
 import UserForm from "./UserForm";
 import AuthContext from "../../store/auth-context";
+
+import styles from "./Login.module.css"
 
 const LoginForm: React.FC = () => {
   const email = useRef<HTMLInputElement>(null);
@@ -31,14 +34,16 @@ const LoginForm: React.FC = () => {
   return (
     <Paper elevation={3}>
       <UserForm>
+        <Typography variant="h6" component="h6">Login Form</Typography>
         <TextField label="Email" inputRef={email}/>
         <TextField label="Password" inputRef={password} type="password"/>
         <Button variant="contained" color="primary" onClick={login}>
-          Login
+          login
         </Button>
-      </UserForm>
-    </Paper>
-  );
+        <Link className={styles.SignupSpan} to="/registration">Signup now</Link>
+    </UserForm>
+</Paper>
+);
 }
 
 export default LoginForm;
