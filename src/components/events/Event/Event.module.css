@@ -1,0 +1,9 @@
+.CreateForm {
+    margin: 50px;
+    text-align: center;
+}
+
+.CreateForm button {
+    width: 80%;
+    margin: 10px auto auto auto;
+}

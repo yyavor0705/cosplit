@@ -41,9 +41,9 @@ const LoginForm: React.FC = () => {
           login
         </Button>
         <Link className={styles.SignupSpan} to="/registration">Signup now</Link>
-    </UserForm>
-</Paper>
-);
+      </UserForm>
+    </Paper>
+  );
 }
 
 export default LoginForm;

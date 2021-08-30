@@ -1,5 +1,9 @@
-import {Fragment, useState} from "react";
+import React, {Fragment, useState} from "react";
 import EventListItem from "./Event/EventListItem";
+import Button from "@material-ui/core/Button";
+import EventCreate from "./Event/EventCreate";
+
+import styles from "./EventsList.module.css";
 
 const DATA = [
   {
@@ -67,9 +71,10 @@ const DATA = [
   }
 ]
 
-const EventList: React.FC = () => {
+const EventList = () => {
   const [expandedPanel, setExpandedPanel] = useState("");
   const [eventsList, setEventsList] = useState(DATA)
+  const [openCreateModal, setOpenCreateModal] = useState(false)
 
   const handleChange = (panelKey: string, isExpanded: boolean) => {
     setExpandedPanel(isExpanded ? panelKey : "");
@@ -84,6 +89,10 @@ const EventList: React.FC = () => {
 
   return (
     <Fragment>
+      <Button className={styles.CreateButton} variant="contained" color="primary" onClick={() => setOpenCreateModal(true)}>
+        create new event
+      </Button>
+      <EventCreate open={openCreateModal} handleClose={() => {setOpenCreateModal(false)}}/>
       {
         eventsList.map(ev => {
             return (
@@ -100,7 +109,6 @@ const EventList: React.FC = () => {
           }
         )
       }
-
     </Fragment>
   )
 }
