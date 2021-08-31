@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 import styles from "./EventListItem.module.css"
 import ShortDetailsTable from "./ShortDetailsTable/ShortDetailsTable";
-import {IShortDetailsData} from "../../../models/IShortDetailsData";
+import IOwer from "../../../models/IOwer";
 
 interface IEventListItemProps {
   eventKey: string,
@@ -12,7 +12,7 @@ interface IEventListItemProps {
   summary: string,
   details: string,
   onChangeHandler: (itemKey: string, isExpanded: boolean) => void,
-  shortDetailsData: IShortDetailsData[],
+  shortDetailsData: IOwer[],
   onDelete: (eventKey: string) => void
 }
 

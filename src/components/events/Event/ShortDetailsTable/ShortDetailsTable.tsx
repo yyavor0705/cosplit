@@ -7,10 +7,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-import {IShortDetailsData} from "../../../../models/IShortDetailsData";
+import IOwer from "../../../../models/IOwer";
 
 interface Props {
-  shortDetailsData: IShortDetailsData[]
+  shortDetailsData: IOwer[]
 }
 
 const ShortDetailsTable: React.FC<Props> = (props) => {
@@ -26,9 +26,9 @@ const ShortDetailsTable: React.FC<Props> = (props) => {
         </TableHead>
         <TableBody>
           {props.shortDetailsData.map((row) => (
-            <TableRow key={row.id}>
+            <TableRow key={row.participant.id}>
               <TableCell component="th" scope="row">
-                {row.participantName}
+                {`${row.participant.firstName} ${row.participant.lastName}`}
               </TableCell>
               <TableCell>{row.costs}</TableCell>
             </TableRow>
