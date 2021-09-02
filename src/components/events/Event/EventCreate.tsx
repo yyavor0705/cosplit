@@ -1,8 +1,9 @@
-import {Dialog, FormControl, Paper, TextField, Typography} from "@material-ui/core";
+import {FormControl, TextField, Typography} from "@material-ui/core";
 import React, {useRef} from "react";
 import Button from "@material-ui/core/Button";
 import styles from "./Event.module.css";
 import IEvent from "../../../models/IEvent";
+import BackDropModal from "../../common/backdrop/BackDropModal";
 
 interface IEventCreateProps {
   open: boolean,
@@ -52,20 +53,18 @@ const EventCreate: React.FC<IEventCreateProps> = (props) => {
   }
   
   return (
-    <Dialog open={props.open} onClose={hideDialog}>
-      <Paper elevation={3}>
-        <FormControl className={styles.CreateForm}>
-          <Typography variant="h6" component="h6">Crete New Event</Typography>
-          <TextField label="Title" inputRef={titleRef}/>
-          <Button variant="contained" color="primary" onClick={createEvent}>
-            create
-          </Button>
-          <Button onClick={hideDialog}>
-            cancel
-          </Button>
-        </FormControl>
-      </Paper>
-    </Dialog>
+    <BackDropModal onHide={hideDialog} open={props.open}>
+      <FormControl className={styles.CreateForm}>
+        <Typography variant="h6" component="h6">Crete New Event</Typography>
+        <TextField label="Title" inputRef={titleRef}/>
+        <Button variant="contained" color="primary" onClick={createEvent}>
+          create
+        </Button>
+        <Button onClick={hideDialog}>
+          cancel
+        </Button>
+      </FormControl>
+    </BackDropModal>
   );
 }
 
