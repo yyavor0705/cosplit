@@ -5,6 +5,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import styles from "./EventListItem.module.css"
 import ShortDetailsTable from "./ShortDetailsTable/ShortDetailsTable";
 import IOwer from "../../../models/IOwer";
+import {useHistory} from "react-router-dom";
 
 interface IEventListItemProps {
   eventKey: string,
@@ -17,6 +18,7 @@ interface IEventListItemProps {
 }
 
 const EventListItem: React.FC<IEventListItemProps> = (props) => {
+  const history = useHistory();
   
   const changeHandler = (event: React.ChangeEvent<{}>, expanded: boolean) => {
     console.log(`return from changeHandler ${expanded}`);
@@ -25,6 +27,10 @@ const EventListItem: React.FC<IEventListItemProps> = (props) => {
   
   const deleteHandler = () => {
     props.onDelete(props.eventKey);
+  }
+  
+  const detailsButtonClick = () => {
+    history.push(`/event/${props.eventKey}`);
   }
   
   return (
@@ -39,6 +45,9 @@ const EventListItem: React.FC<IEventListItemProps> = (props) => {
       </AccordionDetails>
       <Divider />
       <AccordionActions>
+        <Button variant="contained" onClick={detailsButtonClick}>
+          DETAILS
+        </Button>
         <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={deleteHandler}>
           DELETE
         </Button>

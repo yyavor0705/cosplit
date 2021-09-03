@@ -2,13 +2,13 @@ import {FormControl, TextField, Typography} from "@material-ui/core";
 import React, {useRef} from "react";
 import Button from "@material-ui/core/Button";
 import styles from "./Event.module.css";
-import IEvent from "../../../models/IEvent";
+import IEventShortData from "../../../models/IEventShortData";
 import BackDropModal from "../../common/backdrop/BackDropModal";
 
 interface IEventCreateProps {
   open: boolean,
   handleClose: () => void
-  handleCreate: (newEvent: IEvent) => void
+  handleCreate: (newEvent: IEventShortData) => void
 }
 
 const EventCreate: React.FC<IEventCreateProps> = (props) => {
@@ -19,9 +19,14 @@ const EventCreate: React.FC<IEventCreateProps> = (props) => {
   }
   
   const createEvent = () => {
-    const newEvent: IEvent = {
+    const newEvent: IEventShortData = {
       id: Math.random().toString(),
       title: titleRef.current!.value,
+      creator: {
+        id: "513456",
+        firstName: "Yurii",
+        lastName: "Yav"
+      },
       costs_data: [
         {
           participant: {

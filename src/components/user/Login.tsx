@@ -1,7 +1,7 @@
 import {Paper, TextField, Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import React, {useContext, useRef} from "react";
-import {Link} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 
 //import useHttp from "../../hooks/use-http";
 import UserForm from "./UserForm";
@@ -14,10 +14,12 @@ const LoginForm: React.FC = () => {
   const password = useRef<HTMLInputElement>(null);
   //const {sendRequest} = useHttp();
   const authCtx = useContext(AuthContext);
+  const history = useHistory();
   
   const login = (event: React.FormEvent) => {
     event.preventDefault();
     authCtx.onLogin();
+    history.push(`/events`);
     // console.log("Login call: " + email.current!.value + " " + password.current!.value);
     // const response = sendRequest({
     //   url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBA5P61AT2iXKI8657cyhwG-7G9iSwIySM",

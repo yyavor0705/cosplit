@@ -4,12 +4,17 @@ import Button from "@material-ui/core/Button";
 import EventCreate from "./Event/EventCreate";
 
 import styles from "./EventsList.module.css";
-import IEvent from "../../models/IEvent";
+import IEventShortData from "../../models/IEventShortData";
 
-const DATA: IEvent[] = [
+const DATA: IEventShortData[] = [
   {
     id: "ev1",
     title: "This is event 1",
+    creator: {
+      id: "creatorid",
+      firstName: "Yurii",
+      lastName: "Yav"
+    },
     costs_data: [
       {
         participant: {
@@ -40,6 +45,11 @@ const DATA: IEvent[] = [
   {
     id: "ev2",
     title: "This is event 2",
+    creator: {
+      id: "creatorid",
+      firstName: "Yurii",
+      lastName: "Yav"
+    },
     costs_data: [
       {
         participant: {
@@ -70,6 +80,11 @@ const DATA: IEvent[] = [
   {
     id: "ev3",
     title: "This is event 3",
+    creator: {
+      id: "creatorid",
+      firstName: "Yurii",
+      lastName: "Yav"
+    },
     costs_data: [
       {
         participant: {
@@ -115,7 +130,7 @@ const EventList = () => {
     setEventsList(newList);
   }
   
-  const handleCreateEvent = (newEvent: IEvent) => {
+  const handleCreateEvent = (newEvent: IEventShortData) => {
     setEventsList((prevState) => {
       prevState.push(newEvent);
       return prevState;
