@@ -1,9 +1,9 @@
 import {useParams} from 'react-router-dom';
 import React, {Fragment, useEffect, useState} from "react";
 import IEventFullData from "../../../models/IEventFullData";
-import IEventExpenses from "../../../models/IEventExpenses";
 import {Typography} from "@material-ui/core";
 import ExpensesTable from "../../Expenses/ExpensesTable";
+import OwerPayerTable from "../../OwerPayer/OwerPayerTable";
 
 interface QuizParams {
   id: string;
@@ -11,7 +11,6 @@ interface QuizParams {
 
 const EventDetailsPage = () => {
   const [eventData, setEventData] = useState<IEventFullData | null>(null);
-  const [eventExpenses, setEventExpanses] = useState<IEventExpenses[]>([])
   const {id: eventID} = useParams<QuizParams>();
   
   const loadEventFullData = () => {
@@ -37,7 +36,7 @@ const EventDetailsPage = () => {
         {eventData?.title}
       </Typography>
       <ExpensesTable id={eventID}/>
-
+      <OwerPayerTable eventId={eventID}/>
     </Fragment>
   );
 };

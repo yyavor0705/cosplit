@@ -1,9 +1,7 @@
+import IOwer from "./IOwer";
 import IEventParticipant from "./IEventParticipant";
 
 export default interface IOwerPayerMap {
   payer: IEventParticipant,
-  owersMap: {
-    ower: IEventParticipant,
-    amount: number
-  }[]
+  owersList: IOwer[]
 }

@@ -10,39 +10,40 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import TableContainer from "@material-ui/core/TableContainer";
 import React, {useEffect, useState} from "react";
 import IOwerPayerMap from "../../models/IOwerPayerMap";
+import OwersTable from "./OwersTable";
 
 interface IOwerPayerProps {
   eventId: string
 }
 
 const OwerPayer: React.FC<IOwerPayerProps> = (props) => {
-  const [owerPayerMap, setowerPayerMap] = useState<IOwerPayerMap[]>([])
+  const [owerPayerMapList, setOwerPayerMapList] = useState<IOwerPayerMap[]>([])
   
   const loadOwerPayerMap = () => {
     console.log(`Load ower/payer data for ${props.eventId}`)
-    owerPayerMap([
+    setOwerPayerMapList([
       {
         payer: {
           id: "5234",
           firstName: "UserNAme",
           lastName: "UserLastName"
         },
-        owersMap: [
+        owersList: [
           {
-            ower: {
+            participant: {
               id: "523sdgf4",
               firstName: "UserOwer1",
               lastName: "UserOwer3LastName"
             },
-            amount: 100
+            costs: 100
           },
           {
-            ower: {
-              id: "52346663sdgf4",
-              firstName: "UserOwer2",
-              lastName: "UserOwer54LastName"
+            participant: {
+              id: "523232323sdgf4",
+              firstName: "UserOwer3",
+              lastName: "Us11111LastName"
             },
-            amount: 65.5
+            costs: 34.4
           }
         ]
       }
@@ -58,27 +59,20 @@ const OwerPayer: React.FC<IOwerPayerProps> = (props) => {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Participant</TableCell>
+            <TableCell>Payer</TableCell>
             <TableCell>Target</TableCell>
             <TableCell>Amount</TableCell>
             <TableCell/>
           </TableRow>
         </TableHead>
         <TableBody>
-          {owerPayerMap.map((row) => (
-            <TableRow key={row.id}>
+          {owerPayerMapList.map((row) => (
+            <TableRow key={row.payer.id}>
               <TableCell component="th" scope="row">
                 {`${row.payer.firstName} ${row.payer.lastName}`}
               </TableCell>
-              <TableCell>{row.target}</TableCell>
-              <TableCell>{row.amount}</TableCell>
               <TableCell>
-                <Button variant="contained" startIcon={<EditIcon/>}>
-                  EDIT
-                </Button>
-                <Button variant="contained" color="secondary" startIcon={<DeleteIcon/>}>
-                  DELETE
-                </Button>
+                <OwersTable owers={row.owersList} />
               </TableCell>
             </TableRow>
           ))}
